@@ -23,7 +23,7 @@ public class Tape {
     }
 
     private double weight (){
-        if (this.type == "EPE"){
+        if (this.type.equals("EPE")){
             return ((this.thickness/1000f)*0.525*1)*this.density;
         }
         else {

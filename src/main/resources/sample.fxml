@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.calculator.controller.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="903.0" style="-fx-background-color: #808000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.controller.MainController">
+   <children>
+      <Label layoutX="52.0" layoutY="41.0" text="Grubość pianki:" />
+      <Label layoutX="52.0" layoutY="82.0" text="Gęstość pianki:" />
+      <Label layoutX="52.0" layoutY="127.0" text="Regranulat %:" />
+      <TextField fx:id="gruposc_pianki" layoutX="161.0" layoutY="37.0" promptText="2,0" />
+      <TextField fx:id="gestosc_pianki" layoutX="161.0" layoutY="78.0" promptText="300" />
+      <TextField fx:id="regranulat_pianki" layoutX="161.0" layoutY="123.0" text="30" />
+      <RadioButton fx:id="radio_EPE" layoutX="68.0" layoutY="190.0" mnemonicParsing="false" selected="true" text="EPE">
+         <toggleGroup>
+            <ToggleGroup fx:id="grup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radio_Laminowana" layoutX="193.0" layoutY="190.0" mnemonicParsing="false" text="Laminowana" toggleGroup="$grup" />
+      <Button layoutX="136.0" layoutY="243.0" mnemonicParsing="false" onAction="#calculate" text="Oblicz" />
+      <Label layoutX="60.0" layoutY="334.0" text="LDPE (Kilogram):" />
+      <Label layoutX="60.0" layoutY="373.0" text="Środek poślizgowy (Kilogram):" />
+      <Label layoutX="60.0" layoutY="412.0" text="Środek nukleujący (Kilogram):" />
+      <Label layoutX="60.0" layoutY="456.0" text="Regranulat (Kilogram):" />
+      <Label fx:id="ldpe" layoutX="284.0" layoutY="334.0" text="Label" />
+      <Label fx:id="poslizg" layoutX="284.0" layoutY="383.0" text="Label" />
+      <Label fx:id="nukleujacy" layoutX="284.0" layoutY="422.0" text="Label" />
+      <Label fx:id="regranulat" layoutX="284.0" layoutY="456.0" text="Label" />
+   </children>
+</AnchorPane>
