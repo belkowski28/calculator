@@ -4,13 +4,14 @@ public class Tape {
 
     private double thickness;
     private double density;
-
     private double regranulat;
-
     private double weight_ldpe;
     private double weight_slip;
     private double weight_nucleating;
     private double weight_regranulat;
+
+    private double embossing_time;
+
 
 
     private String type;
@@ -20,6 +21,8 @@ public class Tape {
         setDensity(density);
         setRegranulat(regranulat);
         setType(type);
+        raw_materials_weight();
+        embossing();
     }
 
     private double weight (){
@@ -35,11 +38,26 @@ public class Tape {
         return ((1.0f-0.018f-this.regranulat));
     }
 
-    public void raw_materials_weight(){
+    private void raw_materials_weight(){
         setWeight_ldpe(stuff()*weight());
         setWeight_slip(weight()*0.01f);
         setWeight_nucleating(weight()*0.008f);
         setWeight_regranulat(weight()*this.regranulat);
+    }
+
+    private void embossing(){
+        if (this.density<250 || this.density<300)
+        {
+            this.embossing_time=68.57142857;
+        }
+        else if (this.density<=300 || this.density<=320)
+        {
+            this.embossing_time=60;
+        }
+        else if (this.density > 320)
+        {
+            this.embossing_time=85.71428571;
+        }
     }
 
     public void setWeight_ldpe(double weight_ldpe) {
@@ -88,5 +106,9 @@ public class Tape {
 
     public double getWeight_regranulat() {
         return weight_regranulat;
+    }
+
+    public double getEmbossing_time() {
+        return embossing_time;
     }
 }
